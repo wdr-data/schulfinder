@@ -6,6 +6,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-mdx`,
       options: {
@@ -30,6 +31,13 @@ module.exports = {
         name: "accordion",
         path: `${__dirname}/accordion`
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/data/`,
+      },
     }
   ]
 };
