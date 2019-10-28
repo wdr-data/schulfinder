@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           sourceInstanceName
           name
           childrenSchulfinderRecordsJson {
-            Nr
+            num
           }
         }
       }
@@ -44,7 +44,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Create pages for each markdown file.
   const schoolTemplate = path.resolve(`src/templates/school.jsx`);
   result.data.file.childrenSchulfinderRecordsJson.forEach(
-    ({ Nr: schoolnumber }) => {
+    ({ num: schoolnumber }) => {
       const path = `school/${schoolnumber}`;
       createPage({
         path,
