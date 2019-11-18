@@ -1,7 +1,9 @@
 import React, { useReducer } from "react";
 import { graphql } from "gatsby";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import SchoolCard from "../components/school-card/school-card";
 import SchoolSuggest from "../components/school-suggest/school-suggest";
+import 'pure-react-carousel/dist/react-carousel.es.css';
 export const query = graphql`
   query($schoolnumber: Int) {
     schulfinderRecordsJson(num: { eq: $schoolnumber }) {
@@ -91,24 +93,38 @@ export const useSchoolList = () => {
 
 const SchoolTemplate = ({ data, pageContext }) => {
   const { schoolList = [], addSchool, delSchool } = useSchoolList();
-
+  var idx = 0;
   return (
     <>
-      <SchoolSuggest />
-      <SchoolCard data={data.schulfinderRecordsJson} />
-      {schoolList.map(school => (
-        <SchoolCard data={school} />
-      ))}
+    
+    
+    <div className={"cards cards_amount_"+schoolList.length}>
 
-      <button onClick={() => addSchool("160416")}> Schule 1 </button>
-      <button onClick={() => addSchool("159359")}> Schule 2 </button>
-      <button onClick={() => addSchool("191838")}> Schule 3 </button>
-      <button onClick={() => delSchool("191838")}> Schule 3 entfernen </button>
-    </>
+    <CarouselProvider
+        naturalSlideWidth={300}
+        naturalSlideHeight={500}
+        totalSlides={schoolList.length+1} 
+      >
+ 
+      <Slider>
+       <Slide index={idx++}><SchoolCard  delSchoolCard={delSchool} idx={idx}  data={data.schulfinderRecordsJson} /></Slide>
+     
+      
+      {
+        schoolList.map(school => (
+          <Slide index={idx++}><SchoolCard data={school} idx={idx} delSchoolCard={delSchool} /></Slide>
+      ))
+      
+      }
+       </Slider>
+      <ButtonBack>Back</ButtonBack>
+      <ButtonNext>Next</ButtonNext>
+   </CarouselProvider>
+   </div>
+ 
+   <SchoolSuggest addSchoolCard={addSchool}  />
+   
+ </>
   );
-};
-
-export function addSchoolCard2(id) {
-  addSchoolCard(id);
 }
 export default SchoolTemplate;

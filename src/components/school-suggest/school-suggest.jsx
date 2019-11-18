@@ -1,7 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import Autosuggest from "react-autosuggest";
-import SchoolTemplate, { addSchoolCard } from "../../templates/school.jsx";
 
 const schools = require("./schools.json");
 
@@ -28,9 +26,9 @@ const renderSuggestion = suggestion => (
 );
 
 class SchoolSuggest extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
-
+    this.addSchoolCard = props.addSchoolCard;
     // Autosuggest is a controlled component.
     // This means that you need to provide an input value
     // and an onChange handler that updates this value (see below).
@@ -64,8 +62,7 @@ class SchoolSuggest extends React.Component {
   };
 
   onSuggestionSelected = (event, suggestion) => {
-    // useSchoolList.addSchool(suggestion.suggestion.num)
-    addSchoolCard2(suggestion.suggestion.num);
+    this.addSchoolCard(suggestion.suggestion.num);
   };
 
   render() {
@@ -73,7 +70,7 @@ class SchoolSuggest extends React.Component {
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: "Type a programming language",
+      placeholder: "Schule oder Stadt eingeben",
       value,
       onChange: this.onChange
     };
