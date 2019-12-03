@@ -17,6 +17,4 @@ import WdrPlayer from '../components/video/video.jsx'
 
 ## Hier ein wenig einleitender Text, falls dieser nicht aus Sophora kommt
 
-<WdrPlayer videoSrc="https://wdradaptiv-vh.akamaihd.net/i/medp/ondemand/weltweit/fsk0/184/1841840/,1841840_21642113,1841840_21642108,1841840_21642110,1841840_21642109,1841840_21642112,1841840_21642111,.mp4.csmil/master.m3u8" videoPoster="https://www1.wdr.de/fernsehen/abenteuer-erde/kuestenotter-100~_v-gseapremiumxl.jpg" />
-
-<Sharing twitter facebook mail whatsapp telegram reddit xing linkedin />
+<WdrPlayer videoId="2048368" videoSrc="https://wdradaptiv-vh.akamaihd.net/i/medp/ondemand/weltweit/fsk0/184/1841840/,1841840_21642113,1841840_21642108,1841840_21642110,1841840_21642109,1841840_21642112,1841840_21642111,.mp4.csmil/master.m3u8" videoPoster="https://www1.wdr.de/fernsehen/abenteuer-erde/kuestenotter-100~_v-gseapremiumxl.jpg" />

@@ -7,7 +7,8 @@ const getSuggestions = value => {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
 
-  return inputLength === 0
+  // Erst nach Eingabe von 3 Zeichen anfangen zu suchen
+  return inputLength < 3
     ? []
     : schools.filter(
         school =>
