@@ -40,7 +40,7 @@
     "gatsby-transformer-json": "^2.2.15",
     "hls.js": "^0.12.4",
     "json-loader": "^0.5.7",
-    "papaparse": "^5.0.1",
+    "papaparse": "^5.2.0",
     "prop-types": "^15.7.2",
     "pure-react-carousel": "^1.23.0",
     "react": "^16.8.6",
